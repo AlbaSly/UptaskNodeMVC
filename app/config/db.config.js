@@ -10,3 +10,11 @@ export class DBConfig {
 
     static NAME = process.env.DB_NAME;
 }
+
+(() => {
+    console.log(DBConfig.HOST)
+    console.log(DBConfig.PORT);
+    console.log(DBConfig.USER);
+    console.log(DBConfig.PASSWORD);
+    console.log(DBConfig.NAME);
+})();
