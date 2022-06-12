@@ -1,0 +1,13 @@
+extends ../head_body
+
+include ../mixins/editOrCreateForm
+
+block content
+    .contenido-principal
+        h1 New Project
+
+        if error
+            .error.alerta
+                p=error
+        +createOrEditProject()
+        

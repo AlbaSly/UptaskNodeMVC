@@ -1,0 +1,15 @@
+mixin tasksList(tasksList = [])
+    .listado-pendientes
+        if (tasksList.length > 0)
+            ul
+                each task in tasksList
+                    li(class="tarea" data-task-id=task.id_task)
+                        p=task.name
+                        .acciones
+                            if (task.finished)
+                                i.far.fa-check-circle.completo
+                            else
+                                i.far.fa-check-circle
+                            i.fas.fa-trash
+        else
+            p Start a new task...

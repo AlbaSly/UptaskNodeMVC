@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        include ../../partials/head
+    body.login
+        .contenedor-formulario 
+            h1 Join Now in UpTask
+
+            if info.length
+                .correcto.alerta
+                    p=info
+            if error.length
+                .error.alerta
+                    p=error
+            form#formulario.caja.caja-login(method="POST" action="/auth/signup")
+                .campo
+                    label(for="email") E-Mail:
+                    input(type="email" name="email" placeholder="Your Email" value=`${email || ''}`)
+                .campo
+                    label(for="password") Password:
+                    input(type="password" name="password" placeholder="Your password")
+                .campo.enviar
+                    input.boton(type="submit" value="Create Account")
+                .campo 
+                    a(href="/auth/login") Do you have a account?
+        
+        script(src="/dist/bundle.js")

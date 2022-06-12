@@ -1,0 +1,27 @@
+extends ../head_body
+
+include ../mixins/tasks-list
+include ../mixins/progress-bar
+
+block content
+    .contenido-principal
+        h1 #{pageTitle}
+
+        if error 
+            .error.alerta
+                p=error
+        form.agregar-tarea(action=`/tasks/new/${project.url}` method="POST" autocomplete="off")
+            .campo
+                label(for="name") Task:
+                input.nombre-tarea(type="text" name="name" placeholder="Task Name")
+            .campo.enviar
+                input.boton.nueva-tarea(type="submit" value="Add Task")
+        
+        +tasksList(tasksList)
+
+        +progressBar(tasksList)
+        
+        //Actions
+        .contenedor-acciones 
+            a(href=`/projects/edit/${project.url}` class="boton") Edit Project
+            button#eliminar-proyecto(data-project-url=project.url type="button" class="boton eliminar") Delete Project

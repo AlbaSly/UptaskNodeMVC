@@ -1,0 +1,9 @@
+mixin createOrEditProject(project = {})
+
+    form.agregar-proyecto(method="POST" action=`${project.id_project ? `/projects/edit/${project.url}`: '/projects/new/'}` autocomplete="off")
+        .campo
+            label(for="name") Project Name:
+            input(type="text" id="nombre" name="name" placeholder="Project Name..." value=`${project.name || ''}`)
+
+        .campo.enviar
+            input(type="submit" value=`${project.id_project ? 'Edit' : 'Create'}` class="boton")

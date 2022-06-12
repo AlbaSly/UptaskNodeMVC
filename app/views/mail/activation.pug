@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        title Document
+
+        style(type="text/css")
+            include ./mail.css
+    body 
+        h2 Activation
+        p Hi, to activate the account click in the next link:
+        
+        a(href=`${url}`) Click Here
+
+        p If you can't access to this link, copy and paste:
+        br
+        strong #{url}
+
+        p This link expires in 15 minutes.
+        p if you don't have not requested to create an account,
+            strong ignore this email
+            p .

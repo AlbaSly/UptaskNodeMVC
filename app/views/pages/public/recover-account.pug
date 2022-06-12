@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        include ../../partials/head
+    body.login
+        .contenedor-formulario
+            h1 Recover Account Access
+
+            if info.length
+                .correcto.alerta
+                    p=info
+            if error.length
+                .error.alerta
+                    p=error
+
+            form#formulario.caja.caja-login(method="POST" action="/auth/recover-account")
+                .campo
+                    label(for="email") E-Mail: 
+                    input(type="email" name="email" placeholder="Your Email" value=`${email || ''}`)
+                .campo.enviar
+                    input.boton(type="submit" value="Recover Account")
+                .campo 
+                    a(href="/auth/login") Back to Login
+                .campo
+                    a(href="/auth/signup") Create an Account

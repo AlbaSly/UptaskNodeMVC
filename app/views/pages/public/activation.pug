@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    head
+        include ../../partials/head
+    body.login
+        .contenedor-formulario
+            h1 #{title}
+
+            if info.length
+                .correcto.alerta
+                    p=info
+            if error.length
+                .error.alerta
+                    p=error
+
+            a(href="/auth/login").info #{info.length ? 'You can login now' : 'Back to login'}

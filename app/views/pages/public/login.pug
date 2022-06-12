@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        include ../../partials/head
+    body.login
+        .contenedor-formulario 
+            h1 Login to UpTask
+
+            if info.length
+                .correcto.alerta
+                    p=info
+            if error.length
+                .error.alerta
+                    p=error
+            form#formulario.caja.caja-login(method="POST" action="/auth/login")
+                .campo
+                    label(for="email") E-Mail:
+                    input(type="email" name="email" placeholder="Your Email" value=`${email || ''}`)
+                .campo
+                    label(for="password") Password:
+                    input(type="password" name="password" placeholder="Your password")
+                .campo.enviar
+                    input.boton(type="submit" value="Login")
+                .campo 
+                    a(href="/auth/signup") Are you new?
+                .campo
+                    a(href="/auth/recover-account") Forgot password
+        
+        script(src="/dist/bundle.js")
