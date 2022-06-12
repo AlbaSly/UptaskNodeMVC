@@ -7,5 +7,10 @@ export const DB = new Sequelize(DBConfig.NAME, DBConfig.USER, DBConfig.PASSWORD,
     dialect: 'mysql',
     operatorsAliases: false,
     define: {timestamps: false},
-    pool: DBConfig.POOL
+    pool: {
+        min: 0,
+        max: 5,
+        acquire: 30000,
+        idle: 10000
+    }
 });

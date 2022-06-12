@@ -9,12 +9,4 @@ export class DBConfig {
     static PASSWORD = process.env.DB_PASSWORD;
 
     static NAME = process.env.DB_NAME;
-
-    //Public DB Config
-    static POOL = {
-        min: 0,
-        max: 5,
-        acquire: 30000,
-        idle: 10000
-    }
 }
