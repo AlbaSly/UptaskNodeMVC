@@ -101,7 +101,7 @@ export const SignUp = async (req, res) => {
         res.redirect(req.originalUrl);
     } catch (error) {
         req.flash('error', error.msg);
-
+        console.log(error);
         const emailInput = encodeURIComponent(req.body.email);
 
         res.redirect(req.originalUrl + '?email=' + emailInput);
